@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\EmailController;
-use App\Models\Email;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/emails', [EmailController::class, 'create'])->name('email.create');
+Route::get('/', [EmailController::class, 'index'])->name('email.index');
 Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('email.sendEmail');
+Route::get('/{uuid}/success', [EmailController::class, 'success'])->name('email.success');
+

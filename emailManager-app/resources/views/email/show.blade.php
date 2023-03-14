@@ -15,60 +15,48 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-5 offset-md-4 mt-5">
+        <div class="col-md-5 offset-md-6 mt-5">
             <h4>SUCCESS</h4>
         </div>
         <div class="col-md-5 offset-md-4 mt-3">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <h5>
-                            Email from: {{ $data['email_from'] }}
-                        </h5>
+                    <div class="list-group">
+                        Email from: {{ $data['email_from'] }}
                     </div>
                     <br>
-                    <div>
-                        <h5>
-                            Email to: {{ $data['email_to'] }}
-                        </h5>
+                    <div class="list-group">
+                        Email to: {{ $data['email_to'] }}
                     </div>
                     <br>
-                    <div>
-                        <h5>
-                            Email CC: {{ $data['email_cc'] }}
-                        </h5>
+                    <div class="list-group">
+                        Email CC: {{ $data['email_cc'] }}
                     </div>
                     <br>
-                    <div>
-                        <h5>
-                            Subject: {{ $data['subject'] }}
-                        </h5>
+                    <div class="list-group">
+                        Subject: {{ $data['subject'] }}
                     </div>
                     <br>
-                    <div>
-                        <h5>
+                    <div class="list-group">
                             Type: @if( $data['type'] == 1)
                             Text @else
                             HTML @endif
-                        </h5>
                     </div>
 
-                    <div class="mt-4">
-                        <h5>
-                            Body:
-                        </h5>
-                        <div class="border-gray-500/50 col-md-6">
+                    <div class="list-group">
+                            <label for="title" class="mt-3">Body:</label>
+                        <div class="border col-md-16 mt-2">
                             @if($data['type'] == 1)
-                                <h5>
-                                    {{ $data['body'] }}
-                                </h5>
+                                {{ $data['body'] }}
                             @else
-                                <iframe srcdoc="{{ $data['body'] }}" src="demo_iframe_srcdoc.htm"></iframe>
+                                <iframe class="col-md-6"
+                                        srcdoc="{{ $data['body'] }}"
+                                        src="demo_iframe_srcdoc.htm">
+                                </iframe>
                             @endif
                         </div>
                     </div>
                     <br>
-
                 </div>
             </div>
         </div>

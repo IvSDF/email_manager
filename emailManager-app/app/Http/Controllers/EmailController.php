@@ -10,10 +10,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class EmailController extends Controller
 {
-    protected $email = Email::class;
-    public function create()
+    public function index()
     {
-        return view('email.create');
+        return view('email.index');
     }
 
     public function sendEmail(EmailRequest $request)
@@ -23,6 +22,7 @@ class EmailController extends Controller
         $uuid = Str::uuid();
         $userAgent = $request->server('HTTP_USER_AGENT');
 
+        request()->session()->put(['data' => $data]);
 
         Email::firstOrCreate([
             'uuid' => $uuid,
@@ -55,17 +55,18 @@ class EmailController extends Controller
         $mail->Subject = $data['subject'];
 
         $mail->isHTML(true);
-        $mail->Body    = $data['body'];
+        $mail->Body = $data['body'];
 
         if ($mail->send()){
-            return $this->success($request);
+
+            return redirect()->route('email.success', ['uuid' => $uuid]);
         }
     }
 
-    public function success(EmailRequest $request)
+    public function success($uuid)
     {
-        $data = $request->validated();
-        return view('email.show', ['data' => $data]);
+        $date = request()->session()->get('data');
+        return view('email.show', ['uuid', $uuid, 'data' => $date]);
     }
 }
 
