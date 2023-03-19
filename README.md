@@ -12,7 +12,7 @@ Execute the commands in turn -
 
 <h3><code>composer update</code><h3>
 
-4.2 chmod -R 775 storage
+<h3><code>chmod -R 775 storage</code><h3>
 
 4.3 chmod -R ugo+rw storage
 
