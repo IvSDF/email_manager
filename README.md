@@ -10,7 +10,7 @@ Enter the docker container using the command - docker exec -it emailManager_app 
 
 Execute the commands in turn -
 
-<h5><code>composer update</code><h5>
+<h3><code>composer update</code><h3>
 
 4.2 chmod -R 775 storage
 
