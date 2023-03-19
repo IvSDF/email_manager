@@ -11,11 +11,9 @@ Enter the docker container using the command - docker exec -it emailManager_app 
 Execute the commands in turn -
 
 <pre>
-
 <span>$ composer update</span>
 <span>$ chmod -R 775 storage</span>
 <span>$ chmod -R ugo+rw storage</span>
-
 </pre>
 
 Rename the file .env.example to .env
