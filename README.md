@@ -4,9 +4,13 @@ Requirements: You need to have docker installed (If you do not use docker, you m
 
 Download the project to a directory and open it in the terminal
 
-Execute the command - docker compose up -d
+Execute the command - 
 
-Enter the docker container using the command - docker exec -it emailManager_app /bin/bash
+<pre> docker compose up -d </pre>
+
+Enter the docker container using the command - 
+
+<pre>$ docker exec -it emailManager_app /bin/bash</pre>
 
 Execute the commands in turn -
 
@@ -21,26 +25,20 @@ Rename the file .env.example to .env
 In the .env file, connect to the database and smtp server -
 
 (copy)
-
+<pre>
 DB_CONNECTION=mysql
-
 DB_HOST=db
-
 DB_PORT=3306
-
 DB_DATABASE=emailManeger_db
-
 DB_USERNAME=root
-
 DB_PASSWORD=root
-
+</pre>
 (add your data)
-
+<pre>
 EMAIL_HOST=ssl://smtp.gmail.com
-
 EMAIL_USERNAME=user@gmail.com
-
 EMAIL_PASSWORD=password
+</pre>
 
 Execute the command - php artisan migrate
 
